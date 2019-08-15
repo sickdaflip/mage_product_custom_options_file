@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Sickdaflip_ProductCustomOptionsFile>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sickdaflip_ProductCustomOptionsFile>
+    </modules>
+</config>

@@ -1,0 +1,3 @@
+app/code/local/Sickdaflip/ProductCustomOptionsFile  app/code/local/Sickdaflip/ProductCustomOptionsFile
+app/design/adminhtml/default/default/template/catalog/product/edit/options/type/select-with-file.phtml  app/design/adminhtml/default/default/template/catalog/product/edit/options/type/select-with-file.phtml
+app/etc/modules/Sickdaflip_ProductCustomOptionsFile.xml app/etc/modules/Sickdaflip_ProductCustomOptionsFile.xml

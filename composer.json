@@ -1,0 +1,7 @@
+{
+	"name": "sickdaflip/mage_product_custom_options_file",
+	"type": "magento-module",
+	"require": {
+		"magento-hackathon/magento-composer-installer": "*"
+	}
+}

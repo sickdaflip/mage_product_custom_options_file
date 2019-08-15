@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Sickdaflip_ProductCustomOptionsFile>
+            <version>1.0.0</version>
+        </Sickdaflip_ProductCustomOptionsFile>
+    </modules>
+    <global>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_edit_tab_options_type_select>Sickdaflip_ProductCustomOptionsFile_Block_Adminhtml_Catalog_Product_Edit_Type_Select</catalog_product_edit_tab_options_type_select>
+                    <catalog_product_edit_tab_options_option>Sickdaflip_ProductCustomOptionsFile_Block_Adminhtml_Catalog_Product_Edit_Tab_Options_Option</catalog_product_edit_tab_options_option>
+                </rewrite>
+            </adminhtml>
+            <catalog>
+                <rewrite>
+                    <product_view_options_type_select>Sickdaflip_ProductCustomOptionsFile_Block_Catalog_Product_View_Options_Type_Select</product_view_options_type_select>
+                </rewrite>
+            </catalog>
+            <productcustomoptionsfile>
+                <class>Sickdaflip_ProductCustomOptionsFile_Block</class>
+            </productcustomoptionsfile>
+        </blocks>
+        <resources>
+            <sickdaflip_productcustomoptionsfile_setup>
+                <setup>
+                    <module>Sickdaflip_ProductCustomOptionsFile</module>
+                </setup>
+            </sickdaflip_productcustomoptionsfile_setup>
+        </resources>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <productcustomoptionsfile before="Mage_Adminhtml">Sickdaflip_ProductCustomOptionsFile_Adminhtml</productcustomoptionsfile>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>
