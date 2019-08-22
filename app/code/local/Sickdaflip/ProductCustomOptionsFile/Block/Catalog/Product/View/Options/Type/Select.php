@@ -78,7 +78,6 @@ class Sickdaflip_ProductCustomOptionsFile_Block_Catalog_Product_View_Options_Typ
             $count = 1;
             foreach ($_option->getValues() as $_value) {
                 $count++;
-
                 $priceStr = $this->_formatPrice(array(
                     'is_percent'    => ($_value->getPriceType() == 'percent'),
                     'pricing_value' => $_value->getPrice($_value->getPriceType() == 'percent')
@@ -90,13 +89,17 @@ class Sickdaflip_ProductCustomOptionsFile_Block_Catalog_Product_View_Options_Typ
                 } else {
                     $checked = $configValue == $htmlValue ? 'checked' : '';
                 }
-                if ($_value->getImage()) {
-                    $image = 'class="with-image"';
+                if ($_value->getImage() && !$_value->getDescription()) {
+                    $liclass = 'class="with-image"';
+                } elseif ($_value->getImage() && $_value->getDescription()) {
+                    $liclass = 'class="with-image-desc"';
+                } elseif (!$_value->getImage() && $_value->getDescription()) {
+                    $liclass = 'class="with-desc"';
                 } else {
-                    $image = 'class="without-image"';
+                    $liclass = '';
                 }
 
-                $selectHtml .= '<li ' . $image . '><input type="' . $type . '" class="' . $class . ' ' . $require
+                $selectHtml .= '<li ' . $liclass . '><input type="' . $type . '" class="' . $class . ' ' . $require
                     . ' product-custom-option"'
                     . ($this->getSkipJsReloadPrice() ? '' : ' onclick="opConfig.reloadPrice()"')
                     . ' name="options[' . $_option->getId() . ']' . $arraySign . '" id="options_' . $_option->getId()
@@ -107,12 +110,21 @@ class Sickdaflip_ProductCustomOptionsFile_Block_Catalog_Product_View_Options_Typ
                     $path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . DS . 'catalog' . DS . 'customoption' .DS;
                     $selectHtml .= '<img width="75" src="' . $path . $_value->getImage() . '" alt="' . $this->escapeHtml($_value->getTitle()) . '" />';
                 }
-                $selectHtml .=  '<span class="text">' . $this->escapeHtml($_value->getTitle()) . ' ' . $priceStr . '</span></label></span>';
+                $selectHtml .=  '<span class="text">' . $this->escapeHtml($_value->getTitle()) . ' ' . $priceStr . '</span>';
+                $selectHtml .= '</label></span>';
+
                 if ($_option->getIsRequire()) {
                     $selectHtml .= '<script type="text/javascript">' . '$(\'options_' . $_option->getId() . '_'
                         . $count . '\').advaiceContainer = \'options-' . $_option->getId() . '-container\';'
                         . '$(\'options_' . $_option->getId() . '_' . $count
                         . '\').callbackFunction = \'validateOptionsCallback\';' . '</script>';
+                }
+                if ($_value->getDescription()) {
+                    $selectHtml .= '<a data-toggle="options' . $_option->getId() . '' . $count . '"><i class="fas fa-info"></i></a>';
+                    $selectHtml .= '<div class="reveal" id="options' . $_option->getId() . '' . $count . '" data-reveal>';
+                    $selectHtml .= '<p class="h3">' . $this->escapeHtml($_value->getTitle()) . '</p>';
+                    $selectHtml .= '<p>' . $this->escapeHtml($_value->getDescription()) . '</p>';
+                    $selectHtml .= '<button class="close-button" data-close aria-label="Close modal" type="button"><span aria-hidden="true">&times;</span></button></div>';
                 }
                 $selectHtml .= '</li>';
             }

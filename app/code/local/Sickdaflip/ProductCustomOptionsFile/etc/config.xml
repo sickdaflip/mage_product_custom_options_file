@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Sickdaflip_ProductCustomOptionsFile>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </Sickdaflip_ProductCustomOptionsFile>
     </modules>
     <global>

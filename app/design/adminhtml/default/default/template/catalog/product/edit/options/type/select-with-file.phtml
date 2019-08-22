@@ -39,6 +39,7 @@
         '<th class="type-sku"><?php echo Mage::helper('core')->jsQuoteEscape(Mage::helper('catalog')->__('SKU')) ?></th>'+
         '<th class="type-title"><?php echo Mage::helper('core')->jsQuoteEscape(Mage::helper('catalog')->__('Image Name')) ?></th>'+
         '<th class="type-title"><?php echo Mage::helper('core')->jsQuoteEscape(Mage::helper('catalog')->__('Upload New Image')) ?></th>'+
+        '<th class="type-title"><?php echo Mage::helper('core')->jsQuoteEscape(Mage::helper('catalog')->__('Description')) ?></th>'+
         '<th class="type-order"><?php echo Mage::helper('core')->jsQuoteEscape(Mage::helper('catalog')->__('Sort Order')) ?></th>'+
         '<th class="type-butt last">&nbsp;</th>'+
         '</tr>'+
@@ -67,6 +68,7 @@
         '<td><input type="text" class="input-text" name="product[options][{{id}}][values][{{select_id}}][sku]" value="{{sku}}"></td>'+
         '<td><input type="text" class="select-type-image" id="product_option_{{id}}_select_{{select_id}}_image" name="product[options][{{id}}][values][{{select_id}}][image]" value="{{image}}">{{checkboxScopeTitle}}</td>'+
         '<td><input type="file" class="input-text select-type-image" id="image" name="{{id}}-{{select_id}}"></td>'+
+        '<td><input type="text" class="input-text" name="product[options][{{id}}][values][{{select_id}}][description]" value="{{description}}"></td>'+
         '<td><input type="text" class="validate-zero-or-greater input-text" name="product[options][{{id}}][values][{{select_id}}][sort_order]" value="{{sort_order}}"></td>'+
         '<td class="last"><span title="Delete row"><?php echo $this->getDeleteButtonHtml() ?></span></td>'+
         '</tr>';

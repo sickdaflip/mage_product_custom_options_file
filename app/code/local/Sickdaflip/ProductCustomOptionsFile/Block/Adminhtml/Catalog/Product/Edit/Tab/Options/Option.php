@@ -76,6 +76,7 @@ class Sickdaflip_ProductCustomOptionsFile_Block_Adminhtml_Catalog_Product_Edit_T
                             'price_type' => ($showPrice) ? $_value->getPriceType() : 0,
                             'sku' => $this->escapeHtml($_value->getSku()),
                             'image' => $_value->getImage(),
+                            'description' => $this->escapeHtml($_value->getDescription()),
                             'sort_order' => $_value->getSortOrder(),
                         );
 
