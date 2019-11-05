@@ -123,7 +123,7 @@ class Sickdaflip_ProductCustomOptionsFile_Block_Catalog_Product_View_Options_Typ
                     $selectHtml .= '<a data-toggle="options' . $_option->getId() . '' . $count . '"><i class="fas fa-info"></i></a>';
                     $selectHtml .= '<div class="reveal" id="options' . $_option->getId() . '' . $count . '" data-reveal>';
                     $selectHtml .= '<p class="h3">' . $this->escapeHtml($_value->getTitle()) . '</p>';
-                    $selectHtml .= '<p>' . $this->escapeHtml($_value->getDescription()) . '</p>';
+                    $selectHtml .= $_value->getDescription();
                     $selectHtml .= '<button class="close-button" data-close aria-label="Close modal" type="button"><span aria-hidden="true">&times;</span></button></div>';
                 }
                 $selectHtml .= '</li>';
