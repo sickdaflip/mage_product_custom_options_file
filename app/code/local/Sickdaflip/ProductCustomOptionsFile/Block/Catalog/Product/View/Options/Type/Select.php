@@ -107,8 +107,8 @@ class Sickdaflip_ProductCustomOptionsFile_Block_Catalog_Product_View_Options_Typ
                     . $this->helper('core')->currencyByStore($_value->getPrice(true), $store, false) . '" />'
                     . '<span class="label"><label for="options_' . $_option->getId() . '_' . $count . '">';
                 if ($_value->getImage()) {
-                    $path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . DS . 'catalog' . DS . 'customoption' .DS;
-                    $selectHtml .= '<img width="75" src="' . $path . $_value->getImage() . '" alt="' . $this->escapeHtml($_value->getTitle()) . '" />';
+                    $path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'catalog' . DS . 'customoption' .DS;
+                    $selectHtml .= '<img loading="lazy" width="75" height="75" src="' . $path . $_value->getImage() . '" alt="' . $this->escapeHtml($_value->getTitle()) . '" />';
                 }
                 $selectHtml .=  '<span class="text">' . $this->escapeHtml($_value->getTitle()) . ' ' . $priceStr . '</span>';
                 $selectHtml .= '</label></span>';
